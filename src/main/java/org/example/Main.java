@@ -5,7 +5,14 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) throws SQLException {
         DatabaseInitService.initDatabase();
-        DatabasePopulateService.populateDatabase();
+        // populate db tables with prepared+batch+transaction
+        DatabasePopulateService.populateWorkers();
+        DatabasePopulateService.populateClients();
+        DatabasePopulateService.populateProjects();
+        DatabasePopulateService.populateProjectsWorkers();
+        // populate db with sql files
+//        DatabasePopulateService.populateDatabase();
+
 
         DatabaseQueryService dbService = new DatabaseQueryService();
 
