@@ -1,7 +1,7 @@
 package org.example;
 
 import org.example.db.Database;
-import org.example.dto.*;
+import org.example.entity.*;
 import org.example.utils.SqlFileLoader;
 
 import java.sql.Connection;
@@ -27,7 +27,6 @@ public class DatabaseQueryService {
                 LongestProject longestProject = new LongestProject(rs.getString("name"),
                         rs.getInt("month_count"));
                 longestProjectList.add(longestProject);
-                System.out.println(longestProject);
             }
         } catch (SQLException e) {
             System.out.printf("Exception. Reason: %s%n", e.getMessage());
@@ -48,7 +47,6 @@ public class DatabaseQueryService {
                 MaxProjectCountClient maxProjectCountClient = new MaxProjectCountClient(rs.getString("name"),
                         rs.getInt("project_count"));
                 maxProjectsList.add(maxProjectCountClient);
-                System.out.println(maxProjectCountClient);
             }
         } catch (SQLException e) {
             System.out.printf("Exception. Reason: %s%n", e.getMessage());
@@ -69,7 +67,6 @@ public class DatabaseQueryService {
                 MaxWorkerSalary maxWorkerSalary = new MaxWorkerSalary(rs.getString("name"),
                         rs.getInt("salary"));
                 maxWorkersSalaryList.add(maxWorkerSalary);
-                System.out.println(maxWorkerSalary);
             }
         } catch (SQLException e) {
             System.out.printf("Exception. Reason: %s%n", e.getMessage());
@@ -92,7 +89,6 @@ public class DatabaseQueryService {
                         rs.getString("name"),
                         LocalDate.parse(rs.getString("birthday")));
                 yeWorkersList.add(yeWorker);
-                System.out.println(yeWorker);
             }
         } catch (SQLException e) {
             System.out.printf("Exception. Reason: %s%n", e.getMessage());
@@ -113,7 +109,6 @@ public class DatabaseQueryService {
                 ProjectPrice projectPrice = new ProjectPrice(rs.getString("name"),
                         rs.getInt("price"));
                 projectPricesList.add(projectPrice);
-                System.out.println(projectPrice);
             }
         } catch (SQLException e) {
             System.out.printf("Exception. Reason: %s%n", e.getMessage());

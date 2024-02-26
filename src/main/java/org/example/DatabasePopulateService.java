@@ -16,17 +16,14 @@ public class DatabasePopulateService {
     }
 
     public static void populateDatabase() throws SQLException {
-        System.out.println("H2 populate data...");
         Connection dbH2Conn = Database.getInstance().getConnection();
         Statement stm = dbH2Conn.createStatement();
 
         String sql = SqlFileLoader.loadSQL("sql/populate_db.sql");
-        int count = stm.executeUpdate(sql);
-        System.out.println("Inserted, count = " + count);
+        stm.executeUpdate(sql);
     }
 
     public static void populateWorkers() throws SQLException {
-        System.out.println("Insert workers...");
         String[] names = new String[]{
                 "King", "Santa", "Claus", "Bruce", "Willis","Alise", "Vik", "Tor", "Ajax", "Bill"};
         String[] bdays = new String[]{
@@ -51,8 +48,7 @@ public class DatabasePopulateService {
                 stm.setInt(4, salary[i]);
                 stm.addBatch();
             }
-            int[] count = stm.executeBatch();
-            System.out.println("Inserted, count[] = " + Arrays.toString(count));
+            stm.executeBatch();
             dbH2Conn.commit();
         } catch(Exception ex) {
             dbH2Conn.rollback();
@@ -62,7 +58,6 @@ public class DatabasePopulateService {
     }
 
     public static void populateClients() throws SQLException {
-        System.out.println("Insert clients...");
         String[] clients = new String[]{"Nasa", "Nato", "Microsoft", "IBM", "Apple"};
 
         Connection dbH2Conn = Database.getInstance().getConnection();
@@ -75,8 +70,7 @@ public class DatabasePopulateService {
                 stm.setString(1, client);
                 stm.addBatch();
             }
-            int[] count = stm.executeBatch();
-            System.out.println("Inserted, count[] = " + Arrays.toString(count));
+            stm.executeBatch();
             dbH2Conn.commit();
         } catch(Exception ex) {
             dbH2Conn.rollback();
@@ -86,7 +80,6 @@ public class DatabasePopulateService {
     }
 
     public static void populateProjects() throws SQLException {
-        System.out.println("Insert projects...");
         int[] clientIds = new int[]{1, 2, 1, 4, 5, 1, 2, 3, 5, 5};
         String[] names = new String[]{
                 "Project A", "Project B", "Project C", "Project D", "Project E",
@@ -108,8 +101,7 @@ public class DatabasePopulateService {
                 stm.setString(3, localDate.plusMonths(months[i]).toString());
                 stm.addBatch();
             }
-            int[] count = stm.executeBatch();
-            System.out.println("Inserted, count[] = " + Arrays.toString(count));
+            stm.executeBatch();
             dbH2Conn.commit();
         } catch(Exception ex) {
             dbH2Conn.rollback();
@@ -120,7 +112,6 @@ public class DatabasePopulateService {
     }
 
     public static void populateProjectsWorkers() throws SQLException {
-        System.out.println("Insert Projects_Workers...");
         int[] projectIds = new int[]{1,1,1,1,1,2,2,2,2,2,3,4,4,4,4,5,5,6,6,8,9,9,10,10};
         int[] workerIds  = new int[]{1,2,3,4,5,6,7,8,9,10,3,1,2,3,4,10,9,8,7,1,2,3,4,10};
 
@@ -136,8 +127,7 @@ public class DatabasePopulateService {
                 stm.setInt(2, workerIds[i]);
                 stm.addBatch();
             }
-            int[] count = stm.executeBatch();
-            System.out.println("Inserted, count[] = " + Arrays.toString(count));
+            stm.executeBatch();
             dbH2Conn.commit();
         } catch(Exception ex) {
             dbH2Conn.rollback();

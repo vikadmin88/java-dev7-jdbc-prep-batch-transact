@@ -1,4 +1,4 @@
-package org.example.dto;
+package org.example.entity;
 
 public class MaxProjectCountClient {
     private String name;

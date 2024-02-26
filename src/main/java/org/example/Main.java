@@ -17,18 +17,18 @@ public class Main {
         DatabaseQueryService dbService = new DatabaseQueryService();
 
         System.out.println("Find longest projects...");
-        System.out.println("dbService.findLongestProjects() = " + dbService.findLongestProjects());
+        System.out.println(dbService.findLongestProjects());
 
         System.out.println("Find max projects client...");
-        System.out.println("dbService.findMaxProjectsClient() = " + dbService.findMaxProjectsClient());
+        System.out.println(dbService.findMaxProjectsClient());
 
         System.out.println("Find max workers salary...");
-        System.out.println("dbService.findMaxWorkerSalary() = " + dbService.findMaxWorkerSalary());
+        System.out.println(dbService.findMaxWorkerSalary());
 
         System.out.println("Find youngest-eldest workers...");
-        System.out.println("dbService.findYoungestEldestWorkers() = " + dbService.findYoungestEldestWorkers());
+        System.out.println(dbService.findYoungestEldestWorkers());
 
         System.out.println("Get project prices...");
-        System.out.println("dbService.getProjectPrices() = " + dbService.getProjectPrices());
+        System.out.println(dbService.getProjectPrices());
     }
 }
